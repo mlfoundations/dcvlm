@@ -37,3 +37,5 @@ Mixture is given as `captioning / instruction / text / multimodal-docs`, by trai
 | DCVLM-2B | `medium`  | DCVLM-Baseline  | InternViT-300M | Qwen2.5-1.5B | [link](https://huggingface.co/mlfoundations/dcvlm-2b-model) |
 | DCVLM-4B | `large`   | DCVLM-Baseline  | InternViT-300M | Qwen2.5-3B   | [link](https://huggingface.co/mlfoundations/dcvlm-4b-model) |
 | DCVLM-8B | `x-large` | DCVLM-Baseline  | InternViT-300M | Qwen2.5-7B   | [link](https://huggingface.co/mlfoundations/dcvlm-8b-model) |
+
+NOTE: We are still releasing all our artefacts gradually at the links above. If a dataset / model has not yet been updated at their respective link, they are currently queued and will be updated as soon as possible. We appreciate your patience as we work through all our uploads!
