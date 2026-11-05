@@ -238,7 +238,7 @@ def main():
             try:
 
                 # NOTE: Matteo, 12/02. Patch to embed the ckpt name in the filename if we're evaluating 
-                # one of our runs (enables sorting, summarizing and deleting unneded checkpoints in dmt_evals/summarize.py)
+                # one of our runs (lets dmt_evals/parse_all.py find the results of a given checkpoint)
                 if args.load_dmt_pretrained:
                     ckpt_code = get_ckpt_code(pretrained_path=args.load_dmt_pretrained)
                     result_file_base = f"{model_name}_{ckpt_code}_{dataset_name}.xlsx"
