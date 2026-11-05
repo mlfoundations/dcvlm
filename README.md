@@ -99,7 +99,7 @@ Currently, summaries are supported for MMMU (dev / val), MMBench (en / cn), AI2D
 
 ## 🧪 Building the Pre-Mixed Datasets
 
-The pre-mixed datasets above are built from a mixture's Meta-JSON in two stages: a *dump* that replays the exact training data pipeline and writes every drawn sample to WebDataset shards, and a two-level *global reshuffle* that makes every shard an independently representative sample of the whole mixture. The full procedure, with verification steps and scaling notes, is in [RELEASE_CHEATSHEET.md](RELEASE_CHEATSHEET.md).
+The pre-mixed datasets above are built from a mixture's Meta-JSON in two steps: a *dump*, which runs our training data loader and writes every sample it produces to WebDataset shards, and a *reshuffle*, which mixes samples across shards so that every shard is a random sample of the whole dataset. To build your own, see [PREMIX_DATA.md](PREMIX_DATA.md).
 
 ## License
 
