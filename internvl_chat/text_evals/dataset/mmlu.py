@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.mmlu.mmlu_gen_4d595a import mmlu_datasets

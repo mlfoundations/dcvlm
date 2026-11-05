@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.humaneval.humaneval_gen_8e312c import humaneval_datasets

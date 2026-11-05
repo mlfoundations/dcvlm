@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.mbpp_cn.mbpp_cn_gen_9114d5 import mbpp_cn_datasets

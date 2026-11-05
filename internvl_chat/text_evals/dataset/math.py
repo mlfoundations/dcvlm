@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.math.math_0shot_gen_393424 import math_datasets

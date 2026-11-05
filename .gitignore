@@ -218,3 +218,29 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+
+# DCVLM: local configs (copy from the .template files)
+internvl_chat/.env
+internvl_chat/scripts/slurm/system_setup.sh
+
+# DCVLM: training / evaluation outputs
+internvl_chat/work_dirs/
+internvl_chat/outputs/
+training_outputs/
+eval_outputs/
+eval_summaries/
+summaries/
+results/
+wandb/
+slurm_logs/
+batchscript-*
+
+# DCVLM: local data and downloaded artifacts
+internvl_chat/data/eval/
+internvl_chat/data/filters/text_decontamination_*
+internvl_chat/eval/mllmguard/GuardRank
+internvl_chat/text_evals/configs

@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.ceval.ceval_gen_2daf24 import ceval_datasets

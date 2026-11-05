@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.cmmlu.cmmlu_gen_c13365 import cmmlu_datasets

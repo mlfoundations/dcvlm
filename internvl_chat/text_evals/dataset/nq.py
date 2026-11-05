@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.nq.nq_gen_3dcea1 import nq_datasets

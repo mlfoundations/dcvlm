@@ -1,0 +1,19 @@
+eva-decord; platform_machine == 'arm64'
+matplotlib
+omegaconf
+openai
+openpyxl
+pandas
+pillow
+portalocker
+protobuf
+python-dotenv
+rich
+setuptools
+sty
+tabulate
+tiktoken
+timeout-decorator
+typing_extensions
+validators
+xlsxwriter

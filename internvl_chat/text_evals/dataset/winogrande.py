@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.winogrande.winogrande_5shot_gen_b36770 import winogrande_datasets

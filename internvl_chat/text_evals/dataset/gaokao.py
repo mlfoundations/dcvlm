@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.GaokaoBench.GaokaoBench_no_subjective_gen_4c31db import GaokaoBench_datasets

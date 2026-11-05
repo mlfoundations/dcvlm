@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.triviaqa.triviaqa_gen_2121ce import triviaqa_datasets

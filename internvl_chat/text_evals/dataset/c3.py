@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.CLUE_C3.CLUE_C3_gen_8c358f import C3_datasets

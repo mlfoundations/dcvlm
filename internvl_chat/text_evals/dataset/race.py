@@ -1,0 +1,1 @@
+from opencompass.configs.datasets.race.race_gen_69ee4f import race_datasets

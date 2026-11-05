@@ -1,0 +1,7 @@
+nltk
+gdown
+kagglehub
+wget
+fiftyone
+opencv-python
+imagehash==4.3.2
