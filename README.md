@@ -66,7 +66,6 @@ The evaluation toolkit is a wrapper around [VLMEvalKit](https://github.com/open-
 If you have installed training dependencies already, most libraries for evaluation should be there. Make sure to install the remaining with `pip install -r requirements/evaluation.txt`. 
 
 **Brief overview.**
-We currently support evaluating our InternVL-2.5 checkpoints. 
 The entrypoint is `internvl_chat/dmt_evals/run.py`. Core arguments are:
 - the `--data` argument, which is a (list of) benchmark(s) to evaluate on. See the [Supported Benchmarks](https://aicarrier.feishu.cn/wiki/Qp7wwSzQ9iK1Y6kNUJVcr6zTnPe?table=tblsdEpLieDoCxtb&view=vewa8sGZrY) on the official VLMEvalKit page.
 - the `--model` argument, which is a (list of) model(s) to evaluate. Pass `--model DMT_InternVL2_5-{MODEL_SIZE}` to evaluate one of our models (e.g., `DMT_InternVL2_5-1B`).
@@ -90,10 +89,17 @@ If you want to evaluate a checkpoint at the end of training, which will be locat
 
 This will dump result files in `internvl_chat/outputs/DMT_InternVL2_5-4B/` named according to the dataset(s).
 
-**Summarizing results and comparing checkpoints.**
-We provide an easy-to-use script to summarize the results of multiple evals in `internvl_chat/dmt_evals/summarize.py`. 
-Move to `internvl_chat` and run it with `python dmt_evals/summarize.py`. You can pass an `--input_dir` if your results are not saved in the default `./outputs` folder. This script will generate a `./summaries` folder (or an `--output_dir` folder), with TSV files for each benchmark, grouped by models and data-splits, with checkpoints sorted from worst to best. 
-Currently, summaries are supported for MMMU (dev / val), MMBench (en / cn), AI2D (test set), Hall-Bench, TextVQA (val), ScienceQA (val), OCRBench, MathVision (mini), MathVista (mini) and SeedBench (IMG). 
+**Displaying results.**
+`internvl_chat/dmt_evals/parse_all.py` collects the results of a checkpoint across our benchmark suite and prints them grouped by category (general, knowledge, OCR, vision-centric, multilingual, ...), flagging any benchmark whose results are missing:
+```bash
+cd internvl_chat
+python dmt_evals/parse_all.py --model DMT_InternVL2_5-4B --ckpt my_run/checkpoint-800 --core --core_metric
+```
+- `--ckpt` is the checkpoint path relative to `CKPT_DIR`.
+- `--validation`, `--core` or `--extended` restrict the results to one of the benchmark suites from the paper (13, 33 and 52 benchmarks); by default all supported benchmarks are included. Use `--data` to pick individual benchmarks instead.
+- `--core_metric` reports a single score per benchmark, the average of every fully evaluated category, and, once all categories are complete, the overall average. Scores are also saved as CSV files in `./summaries/<ckpt>/` (or `--summary_dir`).
+- `--use-judge` shows the scores obtained with LLM-as-a-judge answer extraction (see `SUBMIT_API` in [SLURM.md](SLURM.md)) instead of exact matching, and `--to-latex` prints the tables in LaTeX.
+- Results are read from `./outputs` by default, where interactive runs save them. For evaluations submitted with SLURM, pass `--input_dir $EVAL_DIR --seed 1234` (the default seed of `multi_eval_launcher.py`).
 
 **IMPORTANT NOTE.** The toolkit will download and save the datasets in the `LMUData` folder (`~/LMUData/` by default). If your compute nodes do not have internet access, you need to get the data beforehand (e.g., run *once* on a machine with internet access and transfer the folder, or use `internvl_chat/dmt_evals/download_and_log.py`).
 
